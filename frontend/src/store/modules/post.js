@@ -2,7 +2,7 @@ export default {
     actions: {
         async fetchPlayers({commit}) {
             let res = await fetch(
-                "http://localhost/api/get"
+                "/api/get"
             )
             let players = await res.json()
             commit('updatePlayers', players)
@@ -12,7 +12,7 @@ export default {
         },
         async deletePlayers({commit, state}) {
             let res = await fetch(
-                "http://localhost/api/delete/" + state.forDelete.join(','),
+                "/api/delete/" + state.forDelete.join(','),
                 {
                     method: "POST",
                     mode: 'no-cors', // no-cors, cors, *same-origin

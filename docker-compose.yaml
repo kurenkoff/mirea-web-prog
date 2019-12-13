@@ -7,6 +7,11 @@ services:
   nginx:
     build: "./nginx"
     ports:
-      - "80:80"
+      - "8085:8085"
     depends_on:
       - "goservice"
+      - "front"
+  front:
+    build: "./frontend"
+    ports:
+      - "8082:8080"
